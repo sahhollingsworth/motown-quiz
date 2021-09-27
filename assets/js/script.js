@@ -1,17 +1,10 @@
 /* DOM variables */
 var startBtn = document.getElementById("start");
-var timerEL = document.getElementbyID("time");
-
+var timerEL = document.getElementById("time");
 var questionEl = document.getElementById("question");
 var answersEL = document.getElementById("answers");
-
 var initialsEl = document.getElementById("initials");
 var submitBtn = document.getElementById("submit");
-
-/* timer variables */
-var time = questions.length * 30;
-var timeRemain = 0;
-var questionIndex = 0;
 
 /* Questions array with all questions, answer options, and correct answer*/
 var questions = [
@@ -42,13 +35,36 @@ var questions = [
     }
 ]
 
+/* timer variables */
+var time = questions.length * 30;
+var timeRemain;
+
+/* indicates 1st object in the questions array is the first question shown to user */
+var questionIndex = 0;
 
 function quizStart() {
-    var screenWelcome = document.getElementByID("welcome");
     /* hides the welcome UX */
+    var screenWelcome = document.getElementByID("welcome");
     screenWelcome.setAttribute("class","hidden");
     /* unhides the question UX */
     questionEl.setAttribute("class", "show");
-    /* start timer */
-    time
+    /* Starts timer. Calls the time remaining function every 1 second */
+    timeRemain = setInterval(function(){
+        timeRemaining(); 
+    }, 1000);
+    /* Display initial time */
+    timerEL.textContent = time;
+    console.log("start works, now add questions");
+    /*console for testing. swap in a function showQuestion(); later that defines for to render a question from the array */
+}
+
+function timeRemaining(){
+    /* continuous subtraction from time and update UI */
+    time--;
+    timerEL.textContent = time;
+    /* check that there is still time, otherwise, end quiz */
+    if(time <= 0){
+        console.log("time ran out");
+        /* console for testing. swap in a function quizComplete(); later that defines what happens when quiz ends*/
+    }
 }
