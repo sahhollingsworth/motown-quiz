@@ -10,8 +10,36 @@
     <title>Motown Quiz</title>
 </head>
 <body>
+    <div class="persistent">
+        <!-- how to render the leaderboard?-->
+        <h2 id="leaderboard-ref">See Leaderboard</h2>
+        <h2 id="timer">Remaining time: <span id="time">0</span></h2>
+    </div>
     <main>
-        <script src="assets/js/script.js"></script>
+        <section id="welcome" class="phase-start">
+            <h1>Motown Quiz</h1>
+            <p>See how much you know about motown by taking this timed quiz. Every wrong answer results in a time penalty, so choose wisely!</p>
+            <button class="submit" id="start" type="button">Start</button>
+        </section>
+        <section id="question-segment"  class="phase-later">
+            <h2 id="question"></h2>
+            <ul>
+                <li class="answer-option" id="opt-1" onclick="testFunction">option 1</li>
+                <li class="answer-option" id="opt-2" onclick="testFunction">option 1</li>
+                <li class="answer-option" id="opt-3" onclick="testFunction">option 1</li>
+                <li class="answer-option" id="opt-4" onclick="testFunction">option 1</li>
+            </ul>
+        </section>
+        <section id="leaderboard-entry" class="phase-later">
+            <h1>Quiz complete!</h1>
+            <p>Your final score was <span id="score-final"></span></p>
+            <form method="post">
+                <label for="initials">Enter your initials: </label>
+                <input type="text" placeholder="Example: NPH" name="initials" id="initials" max="4">
+                <input type="submit" value="Submit" class="submit">
+            </form>
+        </section>
     </main>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

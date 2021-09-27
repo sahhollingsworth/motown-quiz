@@ -1,0 +1,16 @@
+* {
+    font-family: Helvetica, Geneva, Optima, sans-serif;
+}
+
+.persistent {
+    font-family: Helvetica, Geneva, Optima, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.submit {
+    cursor: pointer;
+}
+
+
