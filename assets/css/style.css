@@ -10,6 +10,7 @@ a {
     color: #FF7A4F;
     font-family: Helvetica, Geneva, Optima, sans-serif;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 a:hover {
@@ -43,6 +44,18 @@ p {
     letter-spacing: 1px;
 }
 
+/* When timer gets below 20 sections, change background color */
+/* .time-low {
+    background-color: #E7454B;
+    transition: background-color 0.5s;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 150%;
+    padding: 10px 15px 10px 15px;
+    font-family: Helvetica, Geneva, Optima, sans-serif;
+    letter-spacing: 1px;
+} */
+
 /* Styling for all sections: Welcome, Questions, Leaderboard */
 section {
     margin: 50px auto 0 auto;
@@ -55,6 +68,22 @@ section {
 
 .hidden {
     display:none;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: #FF7A4F;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    font-size: 125%;
+}
+
+button:hover {
+    background-color: #F6B64C;
 }
 
 /* Stylization for the start and submit buttons */
