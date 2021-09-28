@@ -45,8 +45,8 @@ var timeRemain;
 /* indicates 1st object in the questions array is the first question shown to user */
 var questionIndex = 0;
 
-/* Add listener for start button */
-startBtn.addEventListener("click", quizStart);
+// /* Add listener for start button */
+// startBtn.addEventListener("click", quizStart);
 
 function quizStart() {
     /* hides the welcome UI */
@@ -74,35 +74,7 @@ function timeRemaining(){
     }
 }
 
-// /* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
-// leaderboardBtn.addEventListener("click", showLeaderboard());
 
-// /* Leaderboard UI */
-// function showLeaderboard() {
-//     /* hides the welcome UI */
-//     welcomeEL.setAttribute("class","hidden");
-//     /* hides the question UI */
-//     questionEl.setAttribute("class", "hidden");
-//     /* show the leaderboard UI */
-//     leaderboardEL.setAttribute("class", "show");
-//     // logic to actually parse high scores from local storage and display all in an OL. if no high scores, "display No Highscores yet"
-// }
-
-// /* Go Back button takes user back to Welcome UI */
-// var goBack = document.getElementById("goto-quiz");
-// goBack.addEventListener("click",  function(){
-//     fromTheTop();
-// })
-    
-// function fromTheTop () {
-//     /* hides the welcome UI */
-//     welcomeEL.setAttribute("class","show");
-//     /* hides the question UI */
-//     questionEl.setAttribute("class", "hidden");
-//     /* hides the leaderboard UI */
-//     leaderboardEL.setAttribute("class", "hidden");
-//     /* address timer and questions index if mid quiz */
-// }
-
+/* Leaderboard UI */
 /* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
 // leaderboardBtn.addEventListener("click", );
