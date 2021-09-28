@@ -1,5 +1,5 @@
 /* DOM variables */
-var welcomeEL = document.getElementByID("welcome");
+var welcomeEL = document.getElementById("welcome");
 var startBtn = document.getElementById("start");
 var timerEL = document.getElementById("time");
 var questionEl = document.getElementById("question");
@@ -7,7 +7,7 @@ var answersEL = document.getElementById("answers");
 var initialsEl = document.getElementById("initials");
 var submitBtn = document.getElementById("submit");
 var leaderboardBtn = document.getElementById("leaderboard-ref");
-var leaderboardEL = document.getElementByID("leaderboard");
+var leaderboardEL = document.getElementById("leaderboard");
 
 /* Questions array with all questions, answer options, and correct answer*/
 var questions = [
@@ -45,11 +45,14 @@ var timeRemain;
 /* indicates 1st object in the questions array is the first question shown to user */
 var questionIndex = 0;
 
+/* Add listener for start button */
+startBtn.addEventListener("click", quizStart);
+
 function quizStart() {
     /* hides the welcome UI */
     welcomeEL.setAttribute("class","hidden");
     /* unhides the question UI */
-    questionEl.setAttribute("class", "show");
+    questionEl.setAttribute("class","show");
     /* Starts timer. Calls the time remaining function every 1 second */
     timeRemain = setInterval(function(){
         timeRemaining(); 
@@ -67,39 +70,39 @@ function timeRemaining(){
     /* check that there is still time, otherwise, end quiz */
     if(time <= 0){
         console.log("time ran out");
-        /* console for testing. swap in a function quizComplete(); later that defines what happens when quiz ends*/
+        /* quizEnd(); later that defines what happens when quiz ends*/
     }
 }
 
-/* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
-leaderboardBtn.addEventListener("click", showLeaderboard());
+// /* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
+// leaderboardBtn.addEventListener("click", showLeaderboard());
 
-/* Leaderboard UI */
-function showLeaderboard() {
-    /* hides the welcome UI */
-    welcomeEL.setAttribute("class","hidden");
-    /* hides the question UI */
-    questionEl.setAttribute("class", "hidden");
-    /* show the leaderboard UI */
-    leaderboardEL.setAttribute("class", "show");
-    // logic to actually parse high scores from local storage and display all in an OL. if no high scores, "display No Highscores yet"
-}
+// /* Leaderboard UI */
+// function showLeaderboard() {
+//     /* hides the welcome UI */
+//     welcomeEL.setAttribute("class","hidden");
+//     /* hides the question UI */
+//     questionEl.setAttribute("class", "hidden");
+//     /* show the leaderboard UI */
+//     leaderboardEL.setAttribute("class", "show");
+//     // logic to actually parse high scores from local storage and display all in an OL. if no high scores, "display No Highscores yet"
+// }
 
-/* Go Back button takes user back to Welcome UI */
-var goBack = document.getElementById("goto-quiz");
-goBack.addEventListener("click",  function(){
-    fromTheTop();
-})
+// /* Go Back button takes user back to Welcome UI */
+// var goBack = document.getElementById("goto-quiz");
+// goBack.addEventListener("click",  function(){
+//     fromTheTop();
+// })
     
-function fromTheTop () {
-    /* hides the welcome UI */
-    welcomeEL.setAttribute("class","show");
-    /* hides the question UI */
-    questionEl.setAttribute("class", "hidden");
-    /* hides the leaderboard UI */
-    leaderboardEL.setAttribute("class", "hidden");
-    /* address timer and questions index if mid quiz */
-}
+// function fromTheTop () {
+//     /* hides the welcome UI */
+//     welcomeEL.setAttribute("class","show");
+//     /* hides the question UI */
+//     questionEl.setAttribute("class", "hidden");
+//     /* hides the leaderboard UI */
+//     leaderboardEL.setAttribute("class", "hidden");
+//     /* address timer and questions index if mid quiz */
+// }
 
 /* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
-leaderboardBtn.addEventListener("click", );
+// leaderboardBtn.addEventListener("click", );
