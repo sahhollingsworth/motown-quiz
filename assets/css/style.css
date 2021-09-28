@@ -1,16 +1,58 @@
 * {
     font-family: Helvetica, Geneva, Optima, sans-serif;
+    font-size: 150%;
+    color: #2c2c2c;
+    background-color: #FBF8D7;
 }
 
+a {
+    cursor: pointer;
+    color: #FF7A4F;
+}
+
+a:hover {
+    color: #F6B64C;
+}
+
+/* Styling for top container with timer and link to highscores */
 .persistent {
     font-family: Helvetica, Geneva, Optima, sans-serif;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.submit {
-    cursor: pointer;
+/* Styling for all sections: Welcome, Questions, Leaderboard */
+section {
+    margin: 50px auto 0 auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
+.hidden {
+    display:none;
+}
+
+/* Stylization for the start and submit buttons */
+.submit {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: #FF7A4F;
+    color: #FFFFFF;
+}
+
+.submit:hover {
+    background-color: #F6B64C;
+}
+
+#start {
+
+}
 

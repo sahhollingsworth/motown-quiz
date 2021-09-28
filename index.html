@@ -10,9 +10,9 @@
     <title>Motown Quiz</title>
 </head>
 <body>
-    <div class="persistent">
+    <div class="persistent visible">
         <!-- how to render the leaderboard?-->
-        <h2 id="leaderboard-ref">See Leaderboard</h2>
+        <h2 id="leaderboard-ref"><a href:"#leaderboard">See Leaderboard </a></h2>
         <h2 id="timer">Remaining time: <span id="time">0</span></h2>
     </div>
     <main>
@@ -30,14 +30,21 @@
                 <li class="answer-option" id="opt-4" onclick="testFunction">option 1</li>
             </ul>
         </section>
-        <section id="leaderboard-entry" class="hidden">
+        <section id="complete" class="hidden">
             <h1>Quiz complete!</h1>
             <p>Your final score was <span id="score-final"></span></p>
             <form method="post">
                 <label for="initials">Enter your initials: </label>
                 <input type="text" placeholder="Example: NPH" name="initials" id="initials" max="4">
-                <input type="submit" value="Submit" id="submit">
+                <!-- does this need a class and an id? -->
+                <input type="submit" value="Submit" id="submit" class="submit">
             </form>
+        </section>
+        <section id="leaderboard" class="hidden">
+            <h1>Highscores</h1>
+            <ol id="leaderboard_item"></ol>
+            <button class="submit" id="">Back to Quiz</button>
+            <button class="submit" id="">Clear Highscores</button>
         </section>
     </main>
     <script src="assets/js/script.js"></script>
