@@ -46,9 +46,6 @@ var timeRemain;
 /* indicates 1st object in the questions array is the first question shown to user */
 var questionIndex = 0;
 
-/* Listener for quiz START button */
-startBtn.onclick = quizStart;
-
 function quizStart() {
     /* hide the welcome UI */
     welcomeEL.setAttribute("class","hidden");
@@ -65,6 +62,9 @@ function quizStart() {
     timerEL.textContent = time;
     renderQuestion();
 }
+
+/* Listener for quiz START button */
+startBtn.onclick = quizStart;
 
 /* Function that decrements time and updates UI - unless there is no time remaining, at which point end quiz is show */
 function timeRemaining(){
@@ -153,27 +153,15 @@ function quizEnd(){
     score.textContent = time;
     
     /* hide the question UI */
-    questionEl.setAttribute("class","hidden");
+    questionEl.style.display = 'none';
+
+    /* hide the toast UI */
+    toastEl.style.display = 'none';
     
     /* unhide the end UI */
     var endEL = document.getElementById("end");
     endEL.setAttribute("class", "");
 }
-
-/* Listener for initials SUBMIT button */
-submitBtn.onclick = saveScore;
-
-/* Listener for key release - to evaluate if enter was used instead of clicking initials SUBMIT button */
-initialsEl.onkeyup = checkKey;
-
-/* Evaluate if the key pressed was the enter key for form submission */
-function checkKey(event) {
-    /* if the released key was the enter key, then act as form submission of initials value */
-    if (event.keyCode === 13){
-        saveScore();
-    }
-}
-
 
 function saveScore(){
     /* standardize value provided in initials field */
@@ -185,7 +173,7 @@ function saveScore(){
     /* validation to prevent blank form entry */
     if (initials === ""){
         alert("Please provide initials");
-        saveScore;
+        // saveScore;
     } else {
         var highscores;
 
@@ -206,11 +194,28 @@ function saveScore(){
         /* Add object created for current completion to the end of the highscores array */
         highscores.push(newScore);
         
-        /* Save Hish Scores array to local storage as string */
-        localStorage.setItem("highscores",JSON.stringify(highscores));
+        /* Save High Scores array to local storage as string */
+        window.localStorage.setItem("highscores",JSON.stringify(highscores));
 
-        location.href = "leaderboards.html";
+        window.location.href = "leaderboards.html";
     }
 }
 
-// leaderboardBtn.addEventListener("click", );
+/* Listener for initials SUBMIT button */
+submitBtn.onclick = saveScore;
+
+/* Listener for key release - to evaluate if enter was used instead of clicking initials SUBMIT button */
+initialsEl.onkeyup = checkKey;
+
+/* Evaluate if the key pressed was the enter key for form submission */
+function checkKey(event) {
+    /* if the released key was the enter key, then act as form submission of initials value */
+    if (event.keyCode === 13){
+        saveScore();
+    }
+}
+
+// /* Listener for Leaderboards.html to load */
+// document.addEventListener("DOMContentLoaded", function(){
+//     //....
+// });
