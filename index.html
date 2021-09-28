@@ -12,14 +12,14 @@
 <body>
     <div class="persistent visible">
         <!-- how to render the leaderboard?-->
-        <h2 id="leaderboard-ref"><a href:"#leaderboard">See Leaderboard </a></h2>
-        <h2 id="timer">Remaining time: <span id="time">0</span></h2>
+        <h2 id="leaderboard-ref" class="persistent_item"><a href:"#leaderboard">LEADERBOARD</a></h2>
+        <h2 id="timer" class="persistent_item">TIME REMAINING: <span id="time"></span></h2>
     </div>
     <main>
         <section id="welcome" class="visible">
             <h1>Motown Quiz</h1>
             <p>See how much you know about motown by taking this timed quiz. Every wrong answer results in a time penalty, so choose wisely!</p>
-            <button class="submit" id="start" type="button">Start</button>
+            <button class="submit" id="start" type="button">START</button>
         </section>
         <section id="question"  class="hidden">
             <h2 id="question-title"></h2>
@@ -43,8 +43,8 @@
         <section id="leaderboard" class="hidden">
             <h1>Highscores</h1>
             <ol id="leaderboard_item"></ol>
-            <button class="submit" id="">Back to Quiz</button>
-            <button class="submit" id="">Clear Highscores</button>
+            <button class="submit" id="goto-quiz">BACK</button>
+            <button class="submit" id="clear">CLEAR HIGHSCORES</button>
         </section>
     </main>
     <script src="assets/js/script.js"></script>

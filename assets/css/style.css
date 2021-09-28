@@ -8,19 +8,40 @@
 a {
     cursor: pointer;
     color: #FF7A4F;
+    font-family: Helvetica, Geneva, Optima, sans-serif;
+    letter-spacing: 1px;
 }
 
 a:hover {
     color: #F6B64C;
 }
 
+h1 {
+    font-size: 175%;
+    /* font-weight: bolder; */
+    letter-spacing: 1px;
+    margin: 5px;
+    padding: 5px;
+}
+
+p {
+    line-height: 120%;
+    margin: 5px;
+    padding: 5px;
+}
+
 /* Styling for top container with timer and link to highscores */
 .persistent {
-    font-family: Helvetica, Geneva, Optima, sans-serif;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-between;
+}
+.persistent_item {
+    padding: 10px 15px 10px 15px;
+    font-family: Helvetica, Geneva, Optima, sans-serif;
+    letter-spacing: 1px;
 }
 
 /* Styling for all sections: Welcome, Questions, Leaderboard */
@@ -30,7 +51,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-content: space-around;
 }
 
 .hidden {
@@ -46,13 +67,12 @@ section {
     margin: 10px;
     background-color: #FF7A4F;
     color: #FFFFFF;
+    letter-spacing: 1px;
+    font-size: 125%;
 }
 
 .submit:hover {
     background-color: #F6B64C;
 }
 
-#start {
-
-}
 
