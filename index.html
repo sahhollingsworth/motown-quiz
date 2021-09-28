@@ -17,22 +17,20 @@
     <main>
         <section id="welcome" class="visible">
             <h1>Motown Quiz</h1>
-            <p>See how much you know about motown by taking this timed quiz. Every wrong answer results in a time penalty, so choose wisely!</p>
+            <p>See how much you know about motown by taking this timed quiz. Every wrong answer results in a 10 second time penalty, so choose wisely!</p>
             <button class="submit" id="start" type="button">START</button>
         </section>
         <section id="question"  class="hidden">
             <h2 id="question-title"></h2>
             <ul id="answers"></ul>
         </section>
-        <section id="complete" class="hidden">
-            <h1>Quiz complete!</h1>
-            <p>Your final score was <span id="score-final"></span></p>
+        <section id="end" class="hidden">
+            <h1>Done!</h1>
+            <p>Your final score is <span id="score"></span>!</p>
             <form method="post">
                 <label for="initials">Enter your initials: </label>
-                <input type="text" placeholder="Example: NPH" name="initials" id="initials" max="4">
-                <!-- User goes to Leaderboards page upon submitting initials -->
-                <a href="leaderboards.html">
-                    <input type="submit" value="Submit" class="submit">
+                <input type="text" placeholder="Example: NPH" name="initials" id="initials">
+                <input type="submit" value="Submit" class="submit" id="submit">
                 </a>
             </form>
         </section>
