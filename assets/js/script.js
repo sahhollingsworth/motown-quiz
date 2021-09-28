@@ -60,7 +60,7 @@ function quizStart() {
     }, 1000);
     /* Display initial time */
     timerEL.textContent = time;
-    showQuestion();
+    renderQuestion();
 }
 
 /* Function that decrements time and updates UI - unless there is no time remaining, at which point end quiz is show */
@@ -75,13 +75,12 @@ function timeRemaining(){
     //     timerEL.setAttribute("class","time-low");
     // }
     if (time <= 0){
-        console.log("time ran out");
         /* quizEnd(); later that defines what happens when quiz ends*/
     }
 }
 
-/* Function to find and result*/
-function showQuestion(){
+/* Function to locate and render in UI a question object and all corresponding answer option objects from the questionSet array */
+function renderQuestion(){
     /* get a question from the questionSet array */
     var question = questionSet[questionIndex];
     // update title with active question object
@@ -98,32 +97,45 @@ function showQuestion(){
         /* return answer buttons in UI */
         answersEl.appendChild(answerBtn);
     }
-    answersEl.children[0].addEventListener("click", function(){
-        answerClick(answersEl.children[0]);
+    /* Each answer option object has an event listener*/
+    answersEl.children[0].addEventListener("click", function(event){
+        optionClick(answersEl.children[0]);
+    });
+    answersEl.children[1].addEventListener("click", function(event){
+        optionClick(answersEl.children[1]);
+    });
+    answersEl.children[2].addEventListener("click", function(event){
+        optionClick(answersEl.children[2]);
         console.log("you hit an answer good job");
     });
-    answersEl.children[0].addEventListener("click", function(){
-        answerClick(answersEl.children[1]);
+    answersEl.children[3].addEventListener("click", function(event){
+        optionClick(answersEl.children[3]);
     });
-    answersEl.children[0].addEventListener("click", function(){
-        answerClick(answersEl.children[2]);
-    });
-    answersEl.children[0].addEventListener("click", function(){
-        answerClick(answersEl.children[3]);
-    });
-}
 
-function     
-    /* if the answer option the user clicks on matches in type and value to the answer in the questionSet array, flash the user a Correct toast */
-    if(answerClick.textContent === questionSet[question].answer){
-        toastEl.textContent = "Correct!";
-    /* if the answer option the user clicks on doesn't match in type and value to the answer in the questionSet array, flash the user a Wrong toast and  */
-    } else {
-        /* subraction assingment to remove 2 seconds from time remaining if the answer is wrong */
-        time -= 2;
-        toastEl.textContent = "Wrong :/";
+    function optionClick(option){
+        /* if the answer option the user clicks on matches in type and value to the answer in the questionSet array, flash the user a Correct toast */
+        if(option.textContent == questionSet[questionIndex].answer){
+            toastEl.textContent = "Correct!";
+        /* if the answer option the user clicks on doesn't match in type and value to the answer in the questionSet array, flash the user a Wrong toast and  */
+        } else {
+            /* subraction assingment to remove 2 seconds from time remaining if the answer is wrong */
+            time -= 5;
+            toastEl.textContent = "Wrong :/";
+        }
+
+        /*iterate to next question */
+        questionIndex++;
+
+        /* Evaluate if all questions in the array have been used yet */
+        if (questionIndex === questionSet.length) {
+            console.log("no more");
+            /* quizEnd(); later that defines what happens when quiz ends*/
+        } else {
+            console.log("render another question");
+            renderQuestion();
+        }
     }
-
+}
 /* Leaderboard UI */
 /* Listen for click on the leaderboard-ref link to unhide Leaderboard section */
-// leaderboardBtn.addEventListener("click", );
+/* leaderboardBtn.addEventListener("click", ); */

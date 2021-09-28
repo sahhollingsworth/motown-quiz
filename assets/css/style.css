@@ -103,6 +103,23 @@ button:hover {
     background-color: #F6B64C;
 }
 
+#question {
+    margin: 50px auto 0 auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+}
+
+/* Answer toast message styling */
+#toast {
+    font-style: italic;
+    color: #848484; 
+    letter-spacing: 1px;
+    font-weight: lighter;
+    text-align: left;
+}
 
 /* Leaderboards styling */
 #leaderboards h1 {
