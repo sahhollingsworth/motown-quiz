@@ -1,33 +1,51 @@
+:root {
+    --grey: #2c2c2c;
+    --orange: #FF7A4F;
+    --pop: #F6B64C;
+    --white: #FFFFFF;
+    --mainfont: Helvetica, Geneva, Optima, sans-serif;
+    }
+
 * {
-    font-family: Helvetica, Geneva, Optima, sans-serif;
+    font-family: var(--mainfont);
     font-size: 150%;
-    color: #2c2c2c;
+    color: var(--grey); 
     background-color: #FBF8D7;
 }
 
+/* Leaderboard link in header */
 a {
     cursor: pointer;
-    color: #FF7A4F;
-    font-family: Helvetica, Geneva, Optima, sans-serif;
+    color: var(--orange);
+    font-family: var(--mainfont);
     letter-spacing: 1px;
     text-decoration: none;
 }
 
+/* Leaderboard link in header, when hover */
 a:hover {
-    color: #F6B64C;
+    color: var(--pop);
 }
 
 h1 {
     font-size: 200%;
     letter-spacing: 1px;
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
 }
 
 p {
     line-height: 120%;
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Hides elements not currently in use, defined by js */
+.hidden {
+    display:none;
 }
 
 /* Styling for top container with timer and link to highscores */
@@ -38,54 +56,19 @@ p {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .persistent_item {
     padding: 10px 15px 10px 15px;
-    font-family: Helvetica, Geneva, Optima, sans-serif;
+    font-family: var(--mainfont);
     letter-spacing: 1px;
 }
-
-/* When timer gets below 20 sections, change background color */
-/* .time-low {
-    background-color: #E7454B;
-    transition: background-color 0.5s;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 150%;
-    padding: 10px 15px 10px 15px;
-    font-family: Helvetica, Geneva, Optima, sans-serif;
-    letter-spacing: 1px;
-} */
 
 /* Styling for all sections: Welcome, Questions, Leaderboard */
 section {
     margin: 50px auto 0 auto;
     width: 70%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
-}
-
-.hidden {
-    display:none;
-}
-
-button {
-    display:inline-block; /* here and in ul */
-    cursor: pointer;
-    border-radius: 5px;
-    border: 0;
-    padding: 5px 10px;
-    margin: 10px;
-    margin-left: 0;
-    background-color: #FF7A4F;
-    color: #FFFFFF;
-    letter-spacing: 1px;
-    font-size: 110%;
-}
-
-button:hover {
-    background-color: #F6B64C;
+    text-align: center;
+    display: block;
 }
 
 /* Stylization for the start and submit buttons */
@@ -95,16 +78,18 @@ button:hover {
     border: 0;
     padding: 5px 10px;
     margin: 10px;
-    background-color: #FF7A4F;
-    color: #FFFFFF;
+    background-color: var(--orange);
+    color: var(--white);
     letter-spacing: 1px;
     font-size: 125%;
+    display: inline-block;
 }
 
 .submit:hover {
-    background-color: #F6B64C;
+    background-color: var(--pop);
 }
 
+/* Question UI */
 #question {
     margin: 50px auto 0 auto;
     width: 70%;
@@ -114,10 +99,49 @@ button:hover {
     align-content: space-around;
 }
 
+#question-title {
+    font-size: 150%;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
 ul {
-    padding: 10px 0 40px 0;
+    padding-left: 0;
     margin: 40px 0 0 0;
     display: block;
+    width: 100%
+}
+
+/* style for answer option buttons */
+button {
+    display: block;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    padding: 5px 10px;
+    margin: 10px;
+    margin-left: 0;
+    background-color: var(--orange);
+    color: var(--white);
+    letter-spacing: 1px;
+    font-size: 100%;
+}
+
+/* style for answer option buttons */
+button:hover {
+    background-color: var(--pop);
+}
+
+/* Styling for End/Initials entry UI */
+input {
+    font-size: 100%;
+    padding:1px;
+}
+
+textarea {
+    border-color: var(--grey);
 }
 
 /* Answer toast message styling */
@@ -129,11 +153,22 @@ ul {
     text-align: left;
 }
 
+
+
 /* Leaderboards styling */
 #leaderboards h1 {
-    display:block;
+    display: block;
+    text-align: left;
 }
 
-.submit-leaderboards {
+#highscores-list {
+    text-align: left;
+    margin: 0 0 40px 0;
+}
+
+#highscores-list li {
     display: block;
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
 }

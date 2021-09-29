@@ -19,7 +19,7 @@ var questionSet = [
     },
     {
         title: "Who wrote the song 'Dancing in the Street'?",
-        options: ["Carol King", "Al Green", "Marvin Gaye", "Aretha Franklin"],
+        options: ["Carole King", "Al Green", "Marvin Gaye", "Aretha Franklin"],
         answer: "Marvin Gaye",
     },
     {
@@ -74,13 +74,6 @@ function timeRemaining(){
     /* continuous subtraction from time and update UI */
     time--;
     timerEL.textContent = time;
-    
-    /* check that there is still time, otherwise, end quiz. This works but the UI is FUBAR */
-    // if (time > 0 && time <= 20){
-    //     var timer = document.getElementById("timer");
-    //     timer.setAttribute("class","time-low");
-    //     timerEL.setAttribute("class","time-low");
-    // }
     if (time <= 0){
         quizEnd();
     }
@@ -154,6 +147,9 @@ function quizEnd(){
     
     /* Return quiz score */
     var score = document.getElementById("score");
+    // if (time < 0){
+    //     time = 0;  
+    // }
     score.textContent = time;
     
     /* hide the question UI */
@@ -170,16 +166,6 @@ function quizEnd(){
 /* Listener for initials SUBMIT button */
 submitBtn.onclick = saveScore;
 
-/* Listener for key release - to evaluate if enter was used instead of clicking initials SUBMIT button */
-initialsEl.onkeyup = checkKey;
-
-/* Evaluate if the key pressed was the enter key for form submission */
-function checkKey(event) {
-    /* if the released key was the enter key, then act as form submission of initials value */
-    if (event.keyCode === 13){
-        saveScore();
-    }
-}
 
 /* Save the user's score and initials in local storage. Leaderboard.js pulls from local storage to generate leaderboard. */
 function saveScore(){

@@ -11,10 +11,10 @@
 </head>
 <body>
     <!-- visible & hidden classes use to show/hide DOM elements as the user progresses through the 3 quiz UI's: Welcome UI, Questions UI, Quiz End UI -->
-    <header class="persistent visible">
+    <header class="persistent">
         <!-- Important information for user, both headers must remain visible throughout quiz UX -->
         <h2 id="leaderboard-ref" class="persistent_item"><a href="leaderboards.html">LEADERBOARD</a></h2>
-        <h2 id="timer" class="persistent_item">TIME REMAINING: <span id="time">0</span></h2>
+        <h2 id="timer" class="persistent_item">TIME REMAINING: <span id="time"></span></h2>
     </header>
     <main>
         <section id="welcome" class="visible">
@@ -24,12 +24,12 @@
         </section>
         <section id="question"  class="hidden">
             <h2 id="question-title"></h2>
-            <ul id="answers"></ul>
+            <div id="answers"></div>
             <!-- js populates answer options for each question as li here-->
         </section>
         <section id="end" class="hidden">
-            <h1>Done!</h1>
-            <p>Your final score is <span id="score"></span></p>
+            <h1>All Done!</h1>
+            <p>Your final score is <span id="score"></span>.</p>
             <form method="post">
                 <label for="initials">Enter your initials: </label>
                 <input type="text" placeholder="Example: NPH" name="initials" id="initials">
