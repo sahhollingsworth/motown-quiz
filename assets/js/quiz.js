@@ -46,6 +46,9 @@ var timeRemain;
 /* indicates 1st object in the questions array is the first question shown to user */
 var questionIndex = 0;
 
+/* Listener for quiz START button */
+startBtn.onclick = quizStart;
+
 function quizStart() {
     /* hide the welcome UI */
     welcomeEL.setAttribute("class","hidden");
@@ -62,9 +65,6 @@ function quizStart() {
     timerEL.textContent = time;
     renderQuestion();
 }
-
-/* Listener for quiz START button */
-startBtn.onclick = quizStart;
 
 /* Function that decrements time and updates UI - unless there is no time remaining, at which point end quiz is show */
 function timeRemaining(){
@@ -163,6 +163,20 @@ function quizEnd(){
     endEL.setAttribute("class", "");
 }
 
+/* Listener for initials SUBMIT button */
+submitBtn.onclick = saveScore;
+
+/* Listener for key release - to evaluate if enter was used instead of clicking initials SUBMIT button */
+initialsEl.onkeyup = checkKey;
+
+/* Evaluate if the key pressed was the enter key for form submission */
+function checkKey(event) {
+    /* if the released key was the enter key, then act as form submission of initials value */
+    if (event.keyCode === 13){
+        saveScore();
+    }
+}
+
 function saveScore(){
     /* standardize value provided in initials field */
     var initials = initialsEl.value.toUpperCase();
@@ -194,28 +208,9 @@ function saveScore(){
         /* Add object created for current completion to the end of the highscores array */
         highscores.push(newScore);
         
-        /* Save High Scores array to local storage as string */
+        /* Save highscores array to local storage as string */
         window.localStorage.setItem("highscores",JSON.stringify(highscores));
 
         window.location.href = "leaderboards.html";
     }
 }
-
-/* Listener for initials SUBMIT button */
-submitBtn.onclick = saveScore;
-
-/* Listener for key release - to evaluate if enter was used instead of clicking initials SUBMIT button */
-initialsEl.onkeyup = checkKey;
-
-/* Evaluate if the key pressed was the enter key for form submission */
-function checkKey(event) {
-    /* if the released key was the enter key, then act as form submission of initials value */
-    if (event.keyCode === 13){
-        saveScore();
-    }
-}
-
-// /* Listener for Leaderboards.html to load */
-// document.addEventListener("DOMContentLoaded", function(){
-//     //....
-// });
