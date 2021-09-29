@@ -13,42 +13,45 @@ var leaderboardEL = document.getElementById("leaderboard");
 /* Questions array with all questions, answer options, and correct answer*/
 var questionSet = [
     {
-        title: "FIRST QUESTION TITLE",
-        options: ["option 1", "option 2", "option 3", "option 4"],
-        answer: "option 1",
+        title: "What group sang 'Heat Wave', released in 1963?",
+        options: ["Martha & The Vandellas", "The Supremes", "The Ronettes", "The Marvelettes"],
+        answer: "Martha & The Vandellas",
     },
     {
-        title: "SECOND QUESTION TITLE",
-        options: ["option 1", "option 2", "option 3", "option 4"],
-        answer: "option 3",
+        title: "Who wrote the song 'Dancing in the Street'?",
+        options: ["Carol King", "Al Green", "Marvin Gaye", "Aretha Franklin"],
+        answer: "Marvin Gaye",
     },
     {
-        title: "THIRD QUESTION TITLE",
-        options: ["option 1", "option 2", "option 3", "option 4"],
-        answer: "option 3",
+        title: "Who sang 1966's 'Hold on, I'm Coming'?",
+        options: ["Marvin Gaye & Tammi Terrell", "Sam Cooke", "Sam & Dave", "Stevie Wonder"],
+        answer: "Sam & Dave",
     },
     {
-        title: "FOURTH QUESTION TITLE",
-        options: ["option 1", "option 2", "option 3", "option 4"],
-        answer: "option 4",
+        title: "Who sang 1968's 'You're all I need to get by'?",
+        options: ["Sam Cooke", "The Temptations", "Marvin Gaye", "Marvin Gaye & Tammi Terrell"],
+        answer: "Marvin Gaye & Tammi Terrell",
     },
     {
-        title: "FIFTH QUESTION TITLE",
-        options: ["option 1", "option 2", "option 3", "option 4"],
-        answer: "option 1",
+        title: "Lauryn Hill's hit Do Wop (That Thing is heavily inspired by what song?",
+        options: ["Stop Her on Sight by Edwin Starr", "Killing Me Softly by Roberta Flack", "You Can't Hurry Love by The Supremes", "ABC by The Jackson 5"],
+        answer: "Stop Her on Sight by Edwin Starr",
     }
 ]
 
-/* timer variables */
+/* Timer variables */
+/* Set starting time of 20 seconds/question */
 var time = questionSet.length * 20;
+/* Main time variable for coundown */
 var timeRemain;
 
-/* indicates 1st object in the questions array is the first question shown to user */
+/* Indicates 1st object in the questions array is the first question shown to user */
 var questionIndex = 0;
 
 /* Listener for quiz START button */
 startBtn.onclick = quizStart;
 
+/* Function to initiate question UI and begin user flow to eventual end state */
 function quizStart() {
     /* hide the welcome UI */
     welcomeEL.setAttribute("class","hidden");
@@ -117,6 +120,7 @@ function renderQuestion(){
         optionClick(answersEl.children[3]);
     });
 
+    /* Manages answer selection, user feedback, and iterating through all elements in the questionSet array */
     function optionClick(option){
         /* if the answer option the user clicks on matches in type and value to the answer in the questionSet array, flash the user a Correct toast */
         if(option.textContent == questionSet[questionIndex].answer){
@@ -142,7 +146,7 @@ function renderQuestion(){
     }
 }
 
-/* Render end page with score and initials entry form */
+/* Render end page with score and initials entry form. Same end UI for either completing all questions (happy path) or running out of time (unhappy path) */
 function quizEnd(){
     /* stop timer */
     clearInterval(timeRemain);
@@ -177,12 +181,11 @@ function checkKey(event) {
     }
 }
 
+/* Save the user's score and initials in local storage. Leaderboard.js pulls from local storage to generate leaderboard. */
 function saveScore(){
     /* standardize value provided in initials field */
     var initials = initialsEl.value.toUpperCase();
-    console.log(initials);
     initials.trim();
-    console.log(initials);
     
     /* validation to prevent blank form entry */
     if (initials === ""){

@@ -10,7 +10,9 @@
     <title>Motown Quiz</title>
 </head>
 <body>
+    <!-- visible & hidden classes use to show/hide DOM elements as the user progresses through the 3 quiz UI's: Welcome UI, Questions UI, Quiz End UI -->
     <header class="persistent visible">
+        <!-- Important information for user, both headers must remain visible throughout quiz UX -->
         <h2 id="leaderboard-ref" class="persistent_item"><a href="leaderboards.html">LEADERBOARD</a></h2>
         <h2 id="timer" class="persistent_item">TIME REMAINING: <span id="time">0</span></h2>
     </header>
@@ -23,6 +25,7 @@
         <section id="question"  class="hidden">
             <h2 id="question-title"></h2>
             <ul id="answers"></ul>
+            <!-- js populates answer options for each question as li here-->
         </section>
         <section id="end" class="hidden">
             <h1>Done!</h1>
@@ -30,9 +33,11 @@
             <form method="post">
                 <label for="initials">Enter your initials: </label>
                 <input type="text" placeholder="Example: NPH" name="initials" id="initials">
+                <!-- Button takes user to leaderboards UI in leaderboards.html -->
                 <button type="button" value="Submit" class="submit" id="submit">Submit</button>
             </form>
         </section>
+        <!-- User message upon answer selection for each question -->
         <section id="toast"></section>
         </section>
     </main>

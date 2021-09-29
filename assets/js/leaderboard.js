@@ -1,9 +1,11 @@
+/* DOM variables */
 var clearBtn = document.getElementById("clear");
 var highscoresList = document.getElementById("highscores-list");
 
 /* Run the function to show list of high scores as soon as the page loads */
 renderHighscores();
 
+/* Retreive all highscores in local storage and return as list in Leaderboard UI */
 function renderHighscores (){
     /* retrieve the highscores array from local storage */
     var highscores = JSON.parse(localStorage.getItem("highscores"));
